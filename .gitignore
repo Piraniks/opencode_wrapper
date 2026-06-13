@@ -1,0 +1,13 @@
+**/**
+
+!.gitignore
+!Dockerfile
+!docker-compose.yml
+!entrypoint.sh
+!README.md
+
+!data/
+!data/.keep
+
+!config/
+!config/opencode.json
