@@ -3,10 +3,6 @@
   "autoupdate": false,
   "share": "disabled",
   "permission": {
-    "external_directory": "allow",
-    "read": {
-      "*": "allow"
-    },
     "bash": {
       "*": "ask",
 
@@ -62,17 +58,19 @@
       "npm *": "ask",
 
       "uv *": "ask",
-      "uv remove*": "allow",
-      "uv run*": "allow",
-      "uv sync*": "allow",
-      "uv lock*": "allow",
+      "uv run *": "allow",
+      "uv remove *": "allow",
+      "uv sync": "allow",
+      "uv lock": "allow",
 
       "poetry *": "ask",
-      "poetry remove*": "allow",
-      "poetry lock*": "allow",
-      "poetry sync*": "allow"
+      "poetry run *": "allow",
+      "poetry remove *": "allow",
+      "poetry lock": "allow",
+      "poetry sync": "allow",
+
+      "make *": "allow"
     },
-    "websearch": "allow",
     "webfetch": "ask"
   }
 }
