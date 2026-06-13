@@ -1,5 +1,7 @@
 FROM node:23.6.0-bookworm-slim
 
+ENV PATH="/root/.local/bin:${PATH}"
+
 RUN apt update \
     && apt install -y --no-install-recommends ca-certificates curl gnupg \
     && install -m 0755 -d /etc/apt/keyrings \
@@ -10,7 +12,10 @@ RUN apt update \
     && apt install -y --no-install-recommends docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 RUN apt update \
-    && apt install -y --no-install-recommends git jq ripgrep less python3 python3-pip
+    && apt install -y --no-install-recommends git jq ripgrep less python3 python3-pip python3-venv pipx
+
+RUN pipx install poetry \
+    && pipx install uv
 
 RUN npm install -g opencode-ai@1.17.4
 
