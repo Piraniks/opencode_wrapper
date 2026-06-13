@@ -14,6 +14,10 @@
       "touch *": "allow",
       "rm *": "allow",
       "mv *": "allow",
+      "wc*": "allow",
+      "uniq*": "allow",
+      "xargs *": "allow",
+      "tee*": "allow",
 
       "ls *": "allow",
       "grep *": "allow",
@@ -30,13 +34,11 @@
       "curl *": "allow",
       "wget *": "allow",
 
-      "git *": "ask",
       "git log*": "allow",
       "git diff*": "allow",
       "git status*": "allow",
       "git show*": "allow",
 
-      "docker *": "ask",
       "docker ps*": "allow",
       "docker images*": "allow",
       "docker exec*": "allow",
@@ -55,15 +57,11 @@
       "python3 *": "allow",
       "node *": "allow",
 
-      "npm *": "ask",
-
-      "uv *": "ask",
       "uv run*": "allow",
       "uv remove*": "allow",
       "uv sync*": "allow",
       "uv lock*": "allow",
 
-      "poetry *": "ask",
       "poetry run*": "allow",
       "poetry remove*": "allow",
       "poetry lock*": "allow",
