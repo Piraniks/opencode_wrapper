@@ -58,16 +58,16 @@
       "npm *": "ask",
 
       "uv *": "ask",
-      "uv run *": "allow",
-      "uv remove *": "allow",
-      "uv sync": "allow",
-      "uv lock": "allow",
+      "uv run*": "allow",
+      "uv remove*": "allow",
+      "uv sync*": "allow",
+      "uv lock*": "allow",
 
       "poetry *": "ask",
-      "poetry run *": "allow",
-      "poetry remove *": "allow",
-      "poetry lock": "allow",
-      "poetry sync": "allow",
+      "poetry run*": "allow",
+      "poetry remove*": "allow",
+      "poetry lock*": "allow",
+      "poetry sync*": "allow",
 
       "make *": "allow"
     },
