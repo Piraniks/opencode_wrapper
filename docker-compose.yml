@@ -6,10 +6,9 @@ services:
     tty: true
     stdin_open: true
     init: true
-    working_dir: "${OPENCODE_DIR:-$PWD}"
     environment:
       OPENCODE_DISABLE_AUTO_UPDATE: "1"
     volumes:
-      - "${OPENCODE_WORKDIR:-$PWD}:{OPENCODE_WORKDIR:-$PWD}"
+      - "${OPENCODE_WORKDIR:-$PWD}:/workdir"
       - ./config:/root/.config/opencode
       - ./data:/root/.local/share/opencode
