@@ -1,5 +1,78 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
-  "share": "disabled"
+  "share": "disabled",
+  "permission": {
+    "external_directory": "allow",
+    "read": {
+      "*": "allow"
+    },
+    "bash": {
+      "*": "ask",
+
+      "cat *": "allow",
+      "echo *": "allow",
+      "pwd": "allow",
+      "cd *": "allow",
+      "mkdir *": "allow",
+      "touch *": "allow",
+      "rm *": "allow",
+      "mv *": "allow",
+
+      "ls *": "allow",
+      "grep *": "allow",
+      "find *": "allow",
+      "cp *": "allow",
+      "jq *": "allow",
+      "sed *": "allow",
+      "awk *": "allow",
+      "sort *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
+      "diff *": "allow",
+
+      "curl *": "allow",
+      "wget *": "allow",
+
+      "git *": "ask",
+      "git log*": "allow",
+      "git diff*": "allow",
+      "git status*": "allow",
+      "git show*": "allow",
+
+      "docker *": "ask",
+      "docker ps*": "allow",
+      "docker images*": "allow",
+      "docker exec*": "allow",
+      "docker run*": "allow",
+      "docker stop*": "allow",
+      "docker rm*": "allow",
+      "docker rmi*": "allow",
+      "docker image *": "allow",
+      "docker container *": "allow",
+      "docker network *": "allow",
+      "docker build *": "allow",
+      "docker compose *": "allow",
+      "docker system *": "allow",
+
+      "python *": "allow",
+      "python3 *": "allow",
+      "node *": "allow",
+
+      "npm *": "ask",
+
+      "uv *": "ask",
+      "uv remove*": "allow",
+      "uv run*": "allow",
+      "uv sync*": "allow",
+      "uv lock*": "allow",
+
+      "poetry *": "ask",
+      "poetry remove*": "allow",
+      "poetry lock*": "allow",
+      "poetry sync*": "allow"
+    },
+    "websearch": "allow",
+    "webfetch": "ask"
+  }
 }
