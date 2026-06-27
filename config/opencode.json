@@ -12,12 +12,17 @@
       "cd *": "allow",
       "mkdir *": "allow",
       "touch *": "allow",
-      "rm *": "allow",
       "mv *": "allow",
       "wc*": "allow",
       "uniq*": "allow",
       "xargs *": "allow",
       "tee*": "allow",
+
+      "rm *": "allow",
+      "rm -rf .*": "deny",
+      "rm -r .*": "deny",
+      "rm .*": "deny",
+      "rm */.*": "deny",
 
       "ls *": "allow",
       "grep *": "allow",
@@ -69,6 +74,6 @@
 
       "make *": "allow"
     },
-    "webfetch": "ask"
+    "webfetch": "allow"
   }
 }
