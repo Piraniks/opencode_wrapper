@@ -18,7 +18,7 @@ function ow() {
 		echo "opencode: refusing to run in the home directory. Must be used inside a project." >$2
 		return 1
 	fi
-	docker compose -f "$HOME/opencode_wrapper/docker-compose.yml" run --build --rm opencode opencode "$@"
+	docker compose -f "$HOME/opencode_wrapper/docker-compose.yml" run --build --rm opencode_wrapper opencode "$@"
 }
 ```
 

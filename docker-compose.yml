@@ -1,5 +1,5 @@
 services:
-  opencode:
+  opencode_wrapper:
     build: .
     container_name: opencode_wrapper
     runtime: sysbox-runc
