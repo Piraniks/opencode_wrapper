@@ -1,6 +1,9 @@
 #!/bin/sh
 
-dockerd >/var/log/dockerd.log 2>&1 &
+USER_ID=${UID:-1000}
+GROUP_ID=${GID:-1000}
+
+dockerd --group "$GROUP_ID" >/var/log/dockerd.log 2>&1 &
 i=0
 until docker info >/dev/null 2>&1; do
   i=$((i + 1))
@@ -10,4 +13,10 @@ until docker info >/dev/null 2>&1; do
   fi
   sleep 0.3
 done
+
+if [ "$(id -u)" = "0" ]; then
+  export HOME="/workdir"
+  exec setpriv --reuid="$USER_ID" --regid="$GROUP_ID" --clear-groups "$@"
+fi
+
 exec "$@"

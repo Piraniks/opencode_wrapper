@@ -1,10 +1,9 @@
-FROM node:23.6.0-bookworm-slim
-
-ENV PATH="/root/.local/bin:${PATH}"
+FROM debian:13.5-slim
 
 COPY setup.sh /setup.sh
 RUN /setup.sh
 
+ENV PIPX_BIN_DIR=/usr/local/bin
 RUN pipx install poetry \
     && pipx install uv
 
