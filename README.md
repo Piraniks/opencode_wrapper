@@ -12,9 +12,8 @@ It's required to run docker compose used by the opencode container command witho
 Add the following function to your shell e.g. `~/.zshrc`:
 ```bash
 function ow() {
-	echo "$PWD $HOME"
 	if [ "$PWD" = "$HOME" ]; then
-		echo "opencode: refusing to run in the home directory. Must be used inside a project." >$2
+		echo "opencode: refusing to run in the home directory. Must be used inside a project." >&2
 		return 1
 	fi
 	docker compose -f "$HOME/opencode_wrapper/docker-compose.yml" run --build --rm opencode_wrapper opencode "$@"
