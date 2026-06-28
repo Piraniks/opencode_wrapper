@@ -2,6 +2,18 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
   "share": "disabled",
+  "default_agent": "dev-scheduler",
+  "agent": {
+    "dev-coder": {
+      "model": "opencode/big-pickle"
+    },
+    "dev-test-writer": {
+      "model": "opencode/big-pickle"
+    },
+    "dev-reviewer": {
+      "model": "opencode/big-pickle"
+    }
+  },
   "permission": {
     "bash": {
       "*": "ask",

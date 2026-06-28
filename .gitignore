@@ -12,3 +12,5 @@
 
 !config/
 !config/opencode.json
+!config/agents
+!config/agents/**.md
