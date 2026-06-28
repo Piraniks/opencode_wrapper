@@ -17,6 +17,8 @@
       "uniq*": "allow",
       "xargs *": "allow",
       "tee*": "allow",
+      "file*": "allow",
+      "which*": "allow",
 
       "rm *": "allow",
       "rm -rf .*": "deny",
@@ -72,6 +74,8 @@
       "poetry remove*": "allow",
       "poetry lock*": "allow",
       "poetry sync*": "allow",
+
+      "npm *": "deny",
 
       "make *": "allow"
     },
