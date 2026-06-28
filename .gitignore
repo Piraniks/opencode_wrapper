@@ -5,6 +5,7 @@
 !docker-compose.yml
 !entrypoint.sh
 !README.md
+!setup.sh
 
 !data/
 !data/.keep

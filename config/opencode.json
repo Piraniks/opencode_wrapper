@@ -29,6 +29,7 @@
       "find *": "allow",
       "cp *": "allow",
       "jq *": "allow",
+      "yq *": "allow",
       "sed *": "allow",
       "awk *": "allow",
       "sort *": "allow",
