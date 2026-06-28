@@ -56,7 +56,7 @@ You can make **multiple Task tool calls in a single message** to dispatch indepe
 
 ## Ubiquitous Language File
 
-You are responsible for creating and maintaining a `ubiquitous-language.yaml` file at the project root (create if not present). This file defines the domain vocabulary that all agents use.
+You are responsible for creating and maintaining a `ubiquitous-language.yaml` file at the project root. This file defines the domain vocabulary that all agents use. If the file is not present, ignore this whole section.
 
 The file format:
 
