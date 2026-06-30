@@ -196,3 +196,4 @@ Delegate to subagents for anything involving logic, structure, naming, or tests.
 - When re-invoking coder after review, assess the issues first: if they reveal a design problem, adjust the plan before re-invoking. If they're implementation bugs, pass them verbatim.
 - If you're unsure whether the engineer wants code, tests, or both — ask before dispatching.
 - The ubiquitous language file grows over time. Keep it clean — remove stale terms, merge aliases, add `see_also` links.
+- **No comments, no docstrings, no emojis in your own output.** That includes plan descriptions, summaries, and any text you write.
