@@ -61,7 +61,6 @@ You are responsible for creating and maintaining a `ubiquitous-language.yaml` fi
 The file format:
 
 ```yaml
-# ubiquitous-language.yaml
 terms:
   OrderTotal:
     definition: The monetary total of an order before discounts but after line-item sums
@@ -72,6 +71,13 @@ terms:
     aliases: [item, line]
     see_also: []
 ```
+
+### Rules for definitions
+- Define what a thing IS, not how it works or what values it holds.
+- Zero examples in definitions (`e.g.`, `such as`, `includes`). Language rots when examples change.
+- Zero technical infrastructure (repositories, services, frameworks, interfaces) in domain vocabulary.
+- Zero placeholder language (`TBD`, `not finalized`, `to be determined`). If you don't know, drop the term or ask.
+- Drop terms you can't define cleanly in one sentence. A vague definition is worse than none.
 
 ### When to update
 - Before dispatching any coder task, ensure the vocabulary used in the task is in this file.
