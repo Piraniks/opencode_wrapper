@@ -93,7 +93,9 @@
       "python -m pip*": "deny",
       "python3 -m pip*": "deny",
 
-      "check-tools": "allow"
+      "check-tools": "allow",
+
+      "*.venv*": "deny"
     }
   }
 }

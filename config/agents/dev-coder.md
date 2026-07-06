@@ -56,10 +56,10 @@ If an issue is purely mechanical (e.g. cannot resolve a type without the right i
 ### Structure
 - Functions do one thing. If you cannot name a function in one honest verb phrase, split it.
 - Pure functions before impure wrappers. Keep business logic free of I/O.
-- Favor small composed functions over large branched ones.
+- No function body exceeds 30 lines of logic. No function has more than 3 branches.
 - Accept concrete types but only use their public interface/contract. Never reach into private fields (Python `_`/`__` prefix, Java `private`, etc.).
 - Use dependency injection for side-effecting dependencies (db, http, fs). Do not hardcode them.
-- No comments or docstrings that explain what the code does. The code must be self-documenting through naming and structure.
+- No comments, docstrings, inline annotations, pragma comments, emojis, or emdashes. Code must be self-documenting through naming and structure alone.
 - No dead code or commented-out code.
 - Do not write tests. The Test Writer handles that.
 
@@ -68,7 +68,7 @@ If an issue is purely mechanical (e.g. cannot resolve a type without the right i
 - Use only the standard library and the project's existing dependencies. If a new library is justified, set status to needs_clarification.
 
 ### Magic Values
-- Every literal that is not 0, 1, True, False, None, or a basic initialiser must be a named constant or enum. No magic numbers, magic strings, magic booleans.
+- Every literal that is not 0, 1, True, False, None, '', [], {}, or set() must be a named constant or enum.
 
 ### Blank Lines
 - Blank lines separate logical sections within a function. Single blank line between definitions.

@@ -15,3 +15,17 @@
 !config/opencode.json
 !config/agents
 !config/agents/**.md
+
+# Tooling checks
+!tooling_checks/
+# Python tooling.
+!tooling_checks/__init__.py
+# make
+!Makefile
+# uv
+!tooling_checks/uv_basic_setup.py
+!tooling_checks/test_uv_tooling.py
+!pyproject.toml
+!uv.lock
+!.python-version
+

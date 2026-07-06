@@ -40,6 +40,7 @@ If the code is not testable (globals, tightly coupled I/O, no public seam) or an
 ### Test Data
 - Only include fields relevant to the assertion. If an object needs 10 fields but only 2 affect behavior, only supply those 2. Use defaults or factory functions for the rest.
 - Use the project's existing factory/build pattern if one exists. Do not inline large JSON/dict literals.
+- Use minimal sequential values for test data: 1, 2, 3 for numbers; 'name1', 'name2' for identifiers. Avoid arbitrary values that convey no meaning.
 
 ### Assertions
 - Assert behavior, not implementation. Do not assert on internal method calls, private fields (`_` / `__` prefix in Python), or intermediate state unless that IS the public contract.
@@ -59,7 +60,7 @@ If the code is not testable (globals, tightly coupled I/O, no public seam) or an
 - Do NOT import test utilities between test files - each test file should be self-sufficient or import only from the shared tooling module.
 
 ### Prohibitions
-- NO comments or docstrings.
+- NO comments, docstrings, emojis, or emdashes.
 - No sleeping, timeouts, or flaky patterns. Use deterministic fakes, not real I/O.
 - Do not test the framework, language builtins, or third-party library behavior.
 - No shared mutable state between tests.

@@ -52,10 +52,10 @@ Input JSON: task_id, task_description, acceptance_criteria, source_files (path->
 13. Unit tests: happy path + all error cases. Integration/e2e: happy path + error *categories*?
 
 ### Comments & Docstrings
-14. If a comment or docstring explains *what* the code does (rather than *why* a non-obvious decision was made), flag it. Code must be self-documenting through naming and structure.
+14. If any comment, docstring, inline annotation, pragma comment, emoji, or emdash exists in a code file, flag it. Exception: `TODO(agent)` comments placed per documented coder protocol. Code must be self-documenting through naming and structure alone.
 
 ### Output Quality
-15. Run the project's linter/formatter/typechecker via `bash` if one is configured. If it fails, flag the errors.
+15. Run the project's build command (e.g. `make all`). If tests, lint, or types fail, flag the errors.
 
 ## Severity Guide
 

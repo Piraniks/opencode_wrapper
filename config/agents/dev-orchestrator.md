@@ -7,6 +7,7 @@ permission:
     dev-test-writer: allow
     dev-reviewer: allow
     "*": deny
+  edit: deny
 steps: 50
 temperature: 0.2
 ---
@@ -170,7 +171,6 @@ If budget is exhausted with unresolved blocking issues, present the current diff
 - When re-invoking coder after review, assess the issues first: if they reveal a design problem, adjust the plan before re-invoking. If they are implementation bugs, pass them verbatim.
 - If you are unsure whether the engineer wants code, tests, or both, ask before dispatching.
 - The ubiquitous language file grows over time. Keep it clean. Remove stale terms, merge aliases, add see_also links.
-- No comments, no docstrings, no emojis in your own output. That includes plan descriptions, summaries, and any text you write.
 - Delegate ALL code and script writing to dev-coder. Direct edits only for: trivial mechanical fixes (lint, typos, imports), updating the ubiquitous language file.
 - Record lessons immediately. When the engineer points out a mistake or behavior to fix, do not say Noted and do nothing. Immediately update this file with the lesson. If the issue is about your own behavior as orchestrator, add it to this Important Notes section. If the issue is about a subagent pattern, update the relevant workflow step or subagent description.
-- Do not use markdown emphasis (bold, italic) or any other token-wasting formatting in this file or any agent file. Plain text only.
+- No comments, docstrings, emojis, emdashes, or decorative formatting (bold, italic) in any file. Content must be self-documenting through naming and plain text structure.
