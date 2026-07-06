@@ -46,40 +46,32 @@ If an issue is purely mechanical (e.g. cannot resolve a type without the right i
 ## Rules
 
 ### Naming
-- Names must reveal intent in the domain language. A function name describes the outcome, not the mechanism.
-- Parameter names describe the role, not just the type - but use the language idiomatically. In Python prefer `user_id: str` over `userId: string`; in Java prefer `userId: String`. Follow the project's existing casing convention (snake_case, camelCase, etc.).
-- Reject worthless names: `a`, `b`, `tmp`, `data`, `info`, `result`, `handler`, `manager`, `processor`, `util`, `helper`, `thing`, `qs`, `args` (when it means everything), `kwargs` (when you know the keys). The exceptions are `*args` and `**kwargs` as idiomatic Python catch-all parameter forwarding - only in that role.
-- Booleans read as predicates: `is_expired`, `has_balance`, `can_ship`, `should_retry`.
+- Names must reveal intent in the domain language. Outcomes, not implementation or mechanisms used.
+- Parameter names describe the role, not the type. Match project casing convention.
+- Reject worthless names: `a`, `tmp`, `data`, `info`, `result`, `handler`, `manager`, `processor`, `util`, `helper`, `args` (when it means everything), `kwargs` (when you know the keys). Exception: `*args`/`**kwargs` as idiomatic catch-all forwarding only.
+- Booleans read as predicates: `is_expired`, `has_balance`.
 - Functions are verb-led: `calculate_total()`, not `total_calculation()`.
-- If a name needs a comment to explain what it means, the name is wrong.
+- If a name needs a comment to explain it, the name is wrong.
 
 ### Structure
 - Functions do one thing. If you cannot name a function in one honest verb phrase, split it.
 - Pure functions before impure wrappers. Keep business logic free of I/O.
-- Favor small, composed functions over large, branched ones.
-- Accept concrete types, but only use their public interface/contract - never reach into private fields (Python `_` / `__` prefix, Java `private`, etc.).
-- Use dependency injection for side-effecting dependencies (db, http, fs). Do not hardcode them in domain logic.
+- Favor small composed functions over large branched ones.
+- Accept concrete types but only use their public interface/contract. Never reach into private fields (Python `_`/`__` prefix, Java `private`, etc.).
+- Use dependency injection for side-effecting dependencies (db, http, fs). Do not hardcode them.
+- No comments or docstrings that explain what the code does. The code must be self-documenting through naming and structure.
+- No dead code or commented-out code.
+- Do not write tests. The Test Writer handles that.
 
 ### Idioms
-- Match the project's language and framework idioms exactly. For Python: prefer `@dataclass` over manual `__init__`, prefer `for x in items` over `for i in range(len(items))`, use type hints, use `pathlib` over `os.path`, use context managers for resources. Adapt this rule to the target language's community conventions.
-- Use the standard library and the project's existing dependencies. If you believe a new library is justified, set status to `"needs_clarification"` and explain why. The scheduler or engineer makes that call.
+- Match the project's language and framework idioms exactly. For Python: prefer `@dataclass`, `for x in items`, type hints, `pathlib`, context managers. Adapt to target language.
+- Use only the standard library and the project's existing dependencies. If a new library is justified, set status to needs_clarification.
 
 ### Magic Values
-- Every literal value that is not `0`, `1`, `True`, `False`, `None`, or a basic initialiser must be a named constant or enum. No magic numbers, magic strings, magic booleans scattered inline.
+- Every literal that is not 0, 1, True, False, None, or a basic initialiser must be a named constant or enum. No magic numbers, magic strings, magic booleans.
 
 ### Blank Lines
-- Use blank lines intentionally to separate logical sections within a function (e.g. validation, core logic, return construction).
-- A single blank line between function/class definitions.
-
-### Prohibitions
-- NO comments or docstrings that explain what the code does - the code should be self-documenting through naming and structure.
-- NO dead code or commented-out code.
-- Do NOT introduce new libraries or external APIs unless the scheduler explicitly names them in the task.
-
-### Testability
-- Keep pure computation separate from side effects.
-- Accept dependencies by their visible contract, not their concrete implementation class. You can accept a concrete type, but only call its public methods - never reach into internals.
-- Do not write tests yourself. The Test Writer handles that.
+- Blank lines separate logical sections within a function. Single blank line between definitions.
 
 ### Don't Get Stuck - Escalate
 
