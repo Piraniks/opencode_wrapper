@@ -22,15 +22,17 @@ apt install -y --no-install-recommends \
     docker-ce-cli \
     containerd.io \
     docker-compose-plugin \
+    file \
     git \
     jq \
-    nodejs \
-    npm \
-    ripgrep \
     less \
     make \
+    nodejs \
+    npm \
+    pipx \
     python3 \
     python3-pip \
     python3-venv \
-    pipx \
+    ripgrep \
+    wget \
     yq
