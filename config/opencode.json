@@ -91,7 +91,9 @@
       "pip *": "deny",
       "pip3 *": "deny",
       "python -m pip*": "deny",
-      "python3 -m pip*": "deny"
+      "python3 -m pip*": "deny",
+
+      "check-tools": "allow"
     }
   }
 }

@@ -140,6 +140,7 @@ check_dir /opencode_config/opencode/agents "opencode agent definitions"
 section "Script availability"
 
 check_file /usr/local/bin/check-tools "check-tools.sh mounted via docker-compose"
+check_cmd check-tools
 
 section "Environment"
 
