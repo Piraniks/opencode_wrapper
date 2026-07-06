@@ -3,12 +3,7 @@ description: Write tests for code produced by the Coder agent. Only invoke via s
 mode: subagent
 hidden: true
 permission:
-  read: allow
-  edit: allow
-  bash: allow
   task: deny
-  glob: allow
-  grep: allow
   webfetch: deny
   websearch: deny
 steps: 15
@@ -44,7 +39,7 @@ The scheduler passes you a JSON object with:
 
 If the code is structured in a way that makes testing excessively hard (globals, tightly coupled I/O, no public seam to inject a fake), return `"needs_refactoring"` and explain which refactoring would unblock testing.
 
-If anything else is unclear — the test framework, the project's test conventions, the expected behaviour of a function — do not guess. Return `"needs_refactoring"` with a clear statement of what is missing. The scheduler will provide the context and re-invoke you.
+If anything else is unclear - the test framework, the project's test conventions, the expected behaviour of a function - do not guess. Return `"needs_refactoring"` with a clear statement of what is missing. The scheduler will provide the context and re-invoke you.
 
 ## Rules
 
@@ -74,7 +69,7 @@ If anything else is unclear — the test framework, the project's test conventio
 ### Shared Setup
 - Generic fixtures and factory functions in a dedicated test tooling file are fine.
 - Do NOT import setup from `conftest.py` into test files (avoids confusion between implicit fixture injection and explicit imports).
-- Do NOT import test utilities between test files — each test file should be self-sufficient or import only from the shared tooling module.
+- Do NOT import test utilities between test files - each test file should be self-sufficient or import only from the shared tooling module.
 
 ### Prohibitions
 - NO comments or docstrings.
@@ -85,5 +80,5 @@ If anything else is unclear — the test framework, the project's test conventio
 
 ### Mocks
 - Only use mocks in integration tests that exercise the IO boundary (e.g. testing that a repository calls the database correctly).
-- Unit tests for pure business logic should never use mocks. If dependencies are separated behind interfaces, pass real stubs or fakes — that's the whole point of the separation.
+- Unit tests for pure business logic should never use mocks. If dependencies are separated behind interfaces, pass real stubs or fakes - that's the whole point of the separation.
 

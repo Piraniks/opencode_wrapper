@@ -28,6 +28,7 @@ apt install -y --no-install-recommends \
     npm \
     ripgrep \
     less \
+    make \
     python3 \
     python3-pip \
     python3-venv \
