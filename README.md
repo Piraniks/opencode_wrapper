@@ -21,3 +21,13 @@ function ow() {
 ```
 
 This will allow you to run `ow` to run the opencode wrapper + it automatically disallows use in $HOME.
+### Local configuration
+
+On a new machine run:
+```bash
+make init
+```
+
+This creates a directory with local files for opencode - per-machine overrides live there. 
+
+Restart the `ow` wrapper after you make changes to the local files for them to apply.
