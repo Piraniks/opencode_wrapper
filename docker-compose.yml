@@ -12,7 +12,7 @@ services:
       UID: "${UID:-1000}"
       GID: "${GID:-1000}"
       XDG_CONFIG_HOME: /opencode_config
-      XDG_DATA_HOME: /tmp/opencode-data
+      XDG_DATA_HOME: /opencode_data
       XDG_CACHE_HOME: /tmp/opencode-cache
       XDG_STATE_HOME: /opencode_data/opencode/state
     volumes:
