@@ -5,13 +5,13 @@
   "default_agent": "dev-orchestrator",
   "agent": {
     "dev-coder": {
-      "model": "opencode/big-pickle"
+      "model": "opencode/deepseek-v4-flash-free"
     },
     "dev-test-writer": {
-      "model": "opencode/big-pickle"
+      "model": "opencode/deepseek-v4-flash-free"
     },
     "dev-reviewer": {
-      "model": "opencode/big-pickle"
+      "model": "opencode/deepseek-v4-flash-free"
     }
   },
   "permission": {
