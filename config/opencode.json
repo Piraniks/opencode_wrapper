@@ -30,7 +30,7 @@
       "xargs *": "allow",
       "tee*": "allow",
       "file*": "allow",
-      "which*": "allow",
+      "which *": "allow",
 
       "rm *": "allow",
       "rm -rf .*": "deny",
@@ -82,6 +82,10 @@
       "uv remove*": "allow",
       "uv sync*": "allow",
       "uv lock*": "allow",
+      "uv python install*": "allow",
+      "uv python list*": "allow",
+      "uv python pin*": "allow",
+      "uv --version": "allow",
 
       "poetry run*": "allow",
       "poetry remove*": "allow",
