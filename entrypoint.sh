@@ -15,6 +15,7 @@ until docker info >/dev/null 2>&1; do
 done
 
 if [ "$(id -u)" = "0" ]; then
+  mkdir -p /opencode_data/uv
   export HOME="/workdir"
   exec setpriv --reuid="$USER_ID" --regid="$GROUP_ID" --clear-groups "$@"
 fi

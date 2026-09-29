@@ -4,6 +4,7 @@ COPY setup.sh /setup.sh
 RUN /setup.sh
 
 ENV PIPX_BIN_DIR=/usr/local/bin PIPX_HOME=/usr/local/share/pipx
+ENV XDG_DATA_HOME=/opencode_data
 RUN pipx install poetry && pipx install uv
 RUN uv python install 3.15 3.14 3.13 3.12
 

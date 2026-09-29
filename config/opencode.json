@@ -87,6 +87,8 @@
       "uv python pin*": "allow",
       "uv --version": "allow",
 
+      "make *": "allow",
+
       "poetry run*": "allow",
       "poetry remove*": "allow",
       "poetry lock*": "allow",
