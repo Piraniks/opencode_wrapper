@@ -8,7 +8,7 @@ ENV XDG_DATA_HOME=/opencode_data
 RUN pipx install poetry && pipx install uv
 RUN uv python install 3.15 3.14 3.13 3.12
 
-RUN npm install -g opencode-ai@1.18.19
+RUN npm install -g opencode-ai@1.19.3
 
 COPY entrypoint.sh /entrypoint.sh
 
