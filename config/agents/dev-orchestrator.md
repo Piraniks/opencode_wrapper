@@ -3,10 +3,10 @@ description: Orchestrates code changes via specialized subagents (coder, test-wr
 mode: primary
 permission:
   task:
+    "*": deny
     dev-coder: allow
     dev-test-writer: allow
     dev-reviewer: allow
-    "*": deny
   edit: deny
 steps: 50
 temperature: 0.2

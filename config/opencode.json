@@ -5,13 +5,13 @@
   "default_agent": "dev-orchestrator",
   "agent": {
     "dev-coder": {
-      "model": "opencode/mimo-v2.5-free"
+      "model": "opencode/deepseek-v4.1-flash-free-free"
     },
     "dev-test-writer": {
-      "model": "opencode/mimo-v2.5-free"
+      "model": "opencode/deepseek-v4.1-flash-free-free"
     },
     "dev-reviewer": {
-      "model": "opencode/mimo-v2.5-free"
+      "model": "opencode/deepseek-v4.1-flash-free-free"
     }
   },
   "permission": {
