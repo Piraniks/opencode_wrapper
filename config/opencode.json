@@ -101,6 +101,7 @@
     { "action": "shell", "resource": "git log*", "effect": "allow" },
     { "action": "shell", "resource": "git diff*", "effect": "allow" },
     { "action": "shell", "resource": "git status*", "effect": "allow" },
+    { "action": "shell", "resource": "git check-ignore*", "effect": "allow" },
     { "action": "shell", "resource": "git show*", "effect": "allow" },
 
     { "action": "shell", "resource": "docker ps*", "effect": "allow" },
