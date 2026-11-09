@@ -7,8 +7,7 @@ services:
     stdin_open: true
     init: true
     environment:
-      OPENCODE_DISABLE_AUTO_UPDATE: "1"
-      OPENCODE_CONFIG: /opencode_local/opencode.json
+      OPENCODE_DISABLE_AUTOUPDATE: "1"
       UID: "${UID:-1000}"
       GID: "${GID:-1000}"
       XDG_CONFIG_HOME: /opencode_config
@@ -20,4 +19,5 @@ services:
       - ./check-tools.sh:/usr/local/bin/check-tools
       - ./config:/opencode_config/opencode
       - ./data:/opencode_data/opencode
-      - ./opencode.local:/opencode_local:ro
+      - ./opencode.local:/etc/opencode:ro
+

@@ -1,108 +1,153 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "autoupdate": false,
+  "update": "disable",
   "share": "disabled",
   "default_agent": "dev-orchestrator",
-  "agent": {
+  "experimental": {
+    "todo": true
+  },
+  "agents": {
+    "dev-orchestrator": {
+      "model": "opencode/deepseek-v4.1-flash-free#orchestrator"
+    },
     "dev-coder": {
-      "model": "opencode/deepseek-v4.1-flash-free-free"
+      "model": "opencode/deepseek-v4.1-flash-free#coder"
     },
     "dev-test-writer": {
-      "model": "opencode/deepseek-v4.1-flash-free-free"
+      "model": "opencode/deepseek-v4.1-flash-free#test-writer"
     },
     "dev-reviewer": {
-      "model": "opencode/deepseek-v4.1-flash-free-free"
+      "model": "opencode/deepseek-v4.1-flash-free#reviewer"
     }
   },
-  "permission": {
-    "bash": {
-      "*": "ask",
-
-      "cat *": "allow",
-      "echo *": "allow",
-      "pwd": "allow",
-      "cd *": "allow",
-      "mkdir *": "allow",
-      "touch *": "allow",
-      "mv *": "allow",
-      "wc*": "allow",
-      "uniq*": "allow",
-      "xargs *": "allow",
-      "tee*": "allow",
-      "file*": "allow",
-      "which *": "allow",
-
-      "rm *": "allow",
-      "rm -rf .*": "deny",
-      "rm -r .*": "deny",
-      "rm .*": "deny",
-      "rm */.*": "deny",
-
-      "ls *": "allow",
-      "grep *": "allow",
-      "rg *": "allow",
-      "find *": "allow",
-      "cp *": "allow",
-      "jq *": "allow",
-      "yq *": "allow",
-      "sed *": "allow",
-      "awk *": "allow",
-      "sort *": "allow",
-      "head *": "allow",
-      "tail *": "allow",
-      "diff *": "allow",
-
-      "curl *": "allow",
-      "wget *": "allow",
-
-      "git log*": "allow",
-      "git diff*": "allow",
-      "git status*": "allow",
-      "git show*": "allow",
-
-      "docker ps*": "allow",
-      "docker images*": "allow",
-      "docker exec*": "allow",
-      "docker run*": "allow",
-      "docker stop*": "allow",
-      "docker rm*": "allow",
-      "docker rmi*": "allow",
-      "docker image *": "allow",
-      "docker container *": "allow",
-      "docker network *": "allow",
-      "docker build *": "allow",
-      "docker compose *": "allow",
-      "docker system *": "allow",
-
-      "python *": "allow",
-      "python3 *": "allow",
-      "node *": "allow",
-
-      "uv run*": "allow",
-      "uv remove*": "allow",
-      "uv sync*": "allow",
-      "uv lock*": "allow",
-      "uv python install*": "allow",
-      "uv python list*": "allow",
-      "uv python pin*": "allow",
-      "uv --version": "allow",
-
-      "make *": "allow",
-
-      "poetry run*": "allow",
-      "poetry remove*": "allow",
-      "poetry lock*": "allow",
-      "poetry sync*": "allow",
-
-      "npm *": "deny",
-      "pip *": "deny",
-      "pip3 *": "deny",
-      "python -m pip*": "deny",
-      "python3 -m pip*": "deny",
-
-      "check-tools": "allow",
-
-      "*.venv*": "deny"
+  "providers": {
+    "opencode": {
+      "models": {
+        "deepseek-v4.1-flash-free": {
+          "variants": [
+            {
+              "id": "orchestrator",
+              "body": {
+                "thinking": { "type": "disabled" },
+                "temperature": 0.2
+              }
+            },
+            {
+              "id": "coder",
+              "body": {
+                "thinking": { "type": "disabled" },
+                "temperature": 0.1
+              }
+            },
+            {
+              "id": "test-writer",
+              "body": {
+                "thinking": { "type": "disabled" },
+                "temperature": 0.1
+              }
+            },
+            {
+              "id": "reviewer",
+              "body": {
+                "thinking": { "type": "disabled" },
+                "temperature": 0.0
+              }
+            }
+          ]
+        }
+      }
     }
-  }
+  },
+  "permissions": [
+    { "action": "shell", "resource": "*", "effect": "ask" },
+
+    { "action": "shell", "resource": "cat *", "effect": "allow" },
+    { "action": "shell", "resource": "echo *", "effect": "allow" },
+    { "action": "shell", "resource": "pwd", "effect": "allow" },
+    { "action": "shell", "resource": "cd *", "effect": "allow" },
+    { "action": "shell", "resource": "mkdir *", "effect": "allow" },
+    { "action": "shell", "resource": "touch *", "effect": "allow" },
+    { "action": "shell", "resource": "mv *", "effect": "allow" },
+    { "action": "shell", "resource": "wc*", "effect": "allow" },
+    { "action": "shell", "resource": "uniq*", "effect": "allow" },
+    { "action": "shell", "resource": "xargs *", "effect": "allow" },
+    { "action": "shell", "resource": "tee*", "effect": "allow" },
+    { "action": "shell", "resource": "file*", "effect": "allow" },
+    { "action": "shell", "resource": "which *", "effect": "allow" },
+
+    { "action": "shell", "resource": "rm *", "effect": "allow" },
+    { "action": "shell", "resource": "rm -rf .*", "effect": "deny" },
+    { "action": "shell", "resource": "rm -r .*", "effect": "deny" },
+    { "action": "shell", "resource": "rm .*", "effect": "deny" },
+    { "action": "shell", "resource": "rm */.*", "effect": "deny" },
+
+    { "action": "shell", "resource": "ls *", "effect": "allow" },
+    { "action": "shell", "resource": "grep *", "effect": "allow" },
+    { "action": "shell", "resource": "rg *", "effect": "allow" },
+    { "action": "shell", "resource": "find *", "effect": "allow" },
+    { "action": "shell", "resource": "cp *", "effect": "allow" },
+    { "action": "shell", "resource": "jq *", "effect": "allow" },
+    { "action": "shell", "resource": "yq *", "effect": "allow" },
+    { "action": "shell", "resource": "sed *", "effect": "allow" },
+    { "action": "shell", "resource": "awk *", "effect": "allow" },
+    { "action": "shell", "resource": "sort *", "effect": "allow" },
+    { "action": "shell", "resource": "head *", "effect": "allow" },
+    { "action": "shell", "resource": "tail *", "effect": "allow" },
+    { "action": "shell", "resource": "diff *", "effect": "allow" },
+
+    { "action": "shell", "resource": "curl *", "effect": "allow" },
+    { "action": "shell", "resource": "wget *", "effect": "allow" },
+
+    { "action": "shell", "resource": "git log*", "effect": "allow" },
+    { "action": "shell", "resource": "git diff*", "effect": "allow" },
+    { "action": "shell", "resource": "git status*", "effect": "allow" },
+    { "action": "shell", "resource": "git show*", "effect": "allow" },
+
+    { "action": "shell", "resource": "docker ps*", "effect": "allow" },
+    { "action": "shell", "resource": "docker images*", "effect": "allow" },
+    { "action": "shell", "resource": "docker exec*", "effect": "allow" },
+    { "action": "shell", "resource": "docker run*", "effect": "allow" },
+    { "action": "shell", "resource": "docker stop*", "effect": "allow" },
+    { "action": "shell", "resource": "docker rm*", "effect": "allow" },
+    { "action": "shell", "resource": "docker rmi*", "effect": "allow" },
+    { "action": "shell", "resource": "docker image *", "effect": "allow" },
+    { "action": "shell", "resource": "docker container *", "effect": "allow" },
+    { "action": "shell", "resource": "docker network *", "effect": "allow" },
+    { "action": "shell", "resource": "docker build *", "effect": "allow" },
+    { "action": "shell", "resource": "docker compose *", "effect": "allow" },
+    { "action": "shell", "resource": "docker system *", "effect": "allow" },
+
+    { "action": "shell", "resource": "python *", "effect": "allow" },
+    { "action": "shell", "resource": "python3 *", "effect": "allow" },
+    { "action": "shell", "resource": "node *", "effect": "allow" },
+
+    { "action": "shell", "resource": "uv run*", "effect": "allow" },
+    { "action": "shell", "resource": "uv remove*", "effect": "allow" },
+    { "action": "shell", "resource": "uv sync*", "effect": "allow" },
+    { "action": "shell", "resource": "uv lock*", "effect": "allow" },
+    { "action": "shell", "resource": "uv python install*", "effect": "allow" },
+    { "action": "shell", "resource": "uv python list*", "effect": "allow" },
+    { "action": "shell", "resource": "uv python pin*", "effect": "allow" },
+    { "action": "shell", "resource": "uv --version", "effect": "allow" },
+
+    { "action": "shell", "resource": "make *", "effect": "allow" },
+
+    { "action": "shell", "resource": "poetry run*", "effect": "allow" },
+    { "action": "shell", "resource": "poetry remove*", "effect": "allow" },
+    { "action": "shell", "resource": "poetry lock*", "effect": "allow" },
+    { "action": "shell", "resource": "poetry sync*", "effect": "allow" },
+
+    { "action": "shell", "resource": "npm *", "effect": "deny" },
+    { "action": "shell", "resource": "pip *", "effect": "deny" },
+    { "action": "shell", "resource": "pip3 *", "effect": "deny" },
+    { "action": "shell", "resource": "python -m pip*", "effect": "deny" },
+    { "action": "shell", "resource": "python3 -m pip*", "effect": "deny" },
+
+    { "action": "shell", "resource": "check-tools", "effect": "allow" },
+
+    { "action": "shell", "resource": "*.venv*", "effect": "deny" },
+
+    { "action": "external_directory", "resource": "*", "effect": "deny" }
+  ]
 }
+

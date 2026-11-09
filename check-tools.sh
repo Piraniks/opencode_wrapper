@@ -144,12 +144,12 @@ check_cmd check-tools
 
 section "Environment"
 
-if [ -n "${OPENCODE_DISABLE_AUTO_UPDATE:-}" ]; then
+if [ -n "${OPENCODE_DISABLE_AUTOUPDATE:-}" ]; then
   PASS=$((PASS + 1))
-  print_result pass "OPENCODE_DISABLE_AUTO_UPDATE is set"
+  print_result pass "OPENCODE_DISABLE_AUTOUPDATE is set"
 else
   WARN=$((WARN + 1))
-  print_result warn "OPENCODE_DISABLE_AUTO_UPDATE is not set"
+  print_result warn "OPENCODE_DISABLE_AUTOUPDATE is not set"
 fi
 
 if [ -n "${XDG_CONFIG_HOME:-}" ]; then

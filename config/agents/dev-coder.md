@@ -2,12 +2,17 @@
 description: Implement code changes from a structured task specification. Only invoke via scheduler.
 mode: subagent
 hidden: true
-permission:
-  task: deny
-  webfetch: deny
-  websearch: deny
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: webfetch
+    resource: "*"
+    effect: deny
+  - action: websearch
+    resource: "*"
+    effect: deny
 steps: 20
-temperature: 0.1
 ---
 
 You are a Coder implementing a specific, well-defined code change.

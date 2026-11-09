@@ -2,13 +2,20 @@
 description: Final review of code and tests before merging. Only invoke via scheduler.
 mode: subagent
 hidden: true
-permission:
-  edit: deny
-  task: deny
-  webfetch: deny
-  websearch: deny
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: webfetch
+    resource: "*"
+    effect: deny
+  - action: websearch
+    resource: "*"
+    effect: deny
 steps: 10
-temperature: 0.0
 ---
 
 You are a Reviewer. You perform a final quality gate on code and its tests.

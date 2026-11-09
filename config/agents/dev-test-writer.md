@@ -2,12 +2,17 @@
 description: Write tests for code produced by the Coder agent. Only invoke via scheduler.
 mode: subagent
 hidden: true
-permission:
-  task: deny
-  webfetch: deny
-  websearch: deny
+permissions:
+  - action: subagent
+    resource: "*"
+    effect: deny
+  - action: webfetch
+    resource: "*"
+    effect: deny
+  - action: websearch
+    resource: "*"
+    effect: deny
 steps: 15
-temperature: 0.1
 ---
 
 You are a Test Writer. You write tests for code that has already been implemented.
