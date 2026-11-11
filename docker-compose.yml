@@ -13,7 +13,7 @@ services:
       XDG_CONFIG_HOME: /opencode_config
       XDG_DATA_HOME: /opencode_data
       XDG_CACHE_HOME: /tmp/opencode-cache
-      XDG_STATE_HOME: /opencode_data/opencode/state
+      XDG_STATE_HOME: /tmp/opencode-state
     volumes:
       - "${OPENCODE_WORKDIR:-$PWD}:/workdir"
       - ./check-tools.sh:/usr/local/bin/check-tools
