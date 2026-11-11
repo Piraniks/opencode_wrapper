@@ -94,6 +94,7 @@
     { "action": "shell", "resource": "head *", "effect": "allow" },
     { "action": "shell", "resource": "tail *", "effect": "allow" },
     { "action": "shell", "resource": "diff *", "effect": "allow" },
+    { "action": "shell", "resource": "timeout *", "effect": "allow" },
 
     { "action": "shell", "resource": "curl *", "effect": "allow" },
     { "action": "shell", "resource": "wget *", "effect": "allow" },
