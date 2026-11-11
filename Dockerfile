@@ -1,5 +1,9 @@
 FROM debian:13.7-slim
 
+ARG DOCKER_DNS=192.168.50.200
+RUN mkdir -p /etc/docker && \
+    printf '{"dns": ["%s"]}\n' "$DOCKER_DNS" > /etc/docker/daemon.json
+
 COPY setup.sh /setup.sh
 RUN /setup.sh
 
