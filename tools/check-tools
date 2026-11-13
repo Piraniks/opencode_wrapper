@@ -20,10 +20,10 @@ check_cmd() {
   _hint="${2:-}"
   if command -v "$_tool" >/dev/null 2>&1; then
     PASS=$((PASS + 1))
-    print_result pass "$_tool — found"
+    print_result pass "$_tool - found"
   else
     FAIL=$((FAIL + 1))
-    print_result fail "$_tool — NOT FOUND${_hint:+ ($_hint)}"
+    print_result fail "$_tool - NOT FOUND${_hint:+ ($_hint)}"
   fi
 }
 
@@ -32,10 +32,10 @@ check_file() {
   _hint="${2:-}"
   if [ -f "$_path" ]; then
     PASS=$((PASS + 1))
-    print_result pass "file $_path — exists"
+    print_result pass "file $_path - exists"
   else
     FAIL=$((FAIL + 1))
-    print_result fail "file $_path — NOT FOUND${_hint:+ ($_hint)}"
+    print_result fail "file $_path - NOT FOUND${_hint:+ ($_hint)}"
   fi
 }
 
@@ -44,10 +44,10 @@ check_dir() {
   _hint="${2:-}"
   if [ -d "$_path" ]; then
     PASS=$((PASS + 1))
-    print_result pass "directory $_path — exists"
+    print_result pass "directory $_path - exists"
   else
     FAIL=$((FAIL + 1))
-    print_result fail "directory $_path — NOT FOUND${_hint:+ ($_hint)}"
+    print_result fail "directory $_path - NOT FOUND${_hint:+ ($_hint)}"
   fi
 }
 
@@ -56,8 +56,8 @@ section() {
   echo "=== $1 ==="
 }
 
-echo "check-tools.sh — tooling availability audit"
-echo "============================================"
+echo "check-tools - tooling availability audit"
+echo "========================================="
 echo "date: $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
 
 section "APT packages (setup.sh + Dockerfile)"
@@ -92,24 +92,34 @@ section "Docker tooling"
 if command -v docker >/dev/null 2>&1; then
   if docker compose version >/dev/null 2>&1; then
     PASS=$((PASS + 1))
-    print_result pass "docker compose — found"
+    print_result pass "docker compose - found"
   else
     WARN=$((WARN + 1))
-    print_result warn "docker compose — not available"
+    print_result warn "docker compose - not available"
   fi
 
   if docker info >/dev/null 2>&1; then
     PASS=$((PASS + 1))
-    print_result pass "dockerd — reachable"
+    print_result pass "dockerd - reachable"
   else
     WARN=$((WARN + 1))
-    print_result warn "dockerd — NOT reachable"
+    print_result warn "dockerd - NOT reachable"
+  fi
+
+  if _container_info=$(timeout 60 docker run --rm alpine:3.24.4 sh -c 'echo "container: $(hostname) $(uname -m)"' 2>/dev/null); then
+    PASS=$((PASS + 1))
+    print_result pass "docker in docker - container ran ($_container_info)"
+  else
+    WARN=$((WARN + 1))
+    print_result warn "docker in docker - container could not run"
   fi
 else
   FAIL=$((FAIL + 1))
-  print_result fail "docker compose — skipped (docker not found)"
+  print_result fail "docker compose - skipped (docker not found)"
   FAIL=$((FAIL + 1))
-  print_result fail "dockerd — skipped (docker not found)"
+  print_result fail "dockerd - skipped (docker not found)"
+  FAIL=$((FAIL + 1))
+  print_result fail "docker in docker - skipped (docker not found)"
 fi
 
 section "Shell utilities (opencode.json allow rules)"
@@ -125,10 +135,10 @@ section "Python venv"
 if command -v python3 >/dev/null 2>&1; then
   if python3 -m venv --help >/dev/null 2>&1; then
     PASS=$((PASS + 1))
-    print_result pass "python3 -m venv — works"
+    print_result pass "python3 -m venv - works"
   else
     FAIL=$((FAIL + 1))
-    print_result fail "python3 -m venv — NOT available"
+    print_result fail "python3 -m venv - NOT available"
   fi
 fi
 
@@ -139,7 +149,7 @@ check_dir /opencode_config/opencode/agents "opencode agent definitions"
 
 section "Script availability"
 
-check_file /usr/local/bin/check-tools "check-tools.sh mounted via docker-compose"
+check_file /usr/local/bin/tools/check-tools "check-tools mounted via docker-compose tools directory"
 check_cmd check-tools
 
 section "Environment"

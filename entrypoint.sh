@@ -3,6 +3,8 @@
 USER_ID=${UID:-1000}
 GROUP_ID=${GID:-1000}
 
+export PATH="$PATH:/usr/local/bin/tools"
+
 dockerd --group "$GROUP_ID" >/var/log/dockerd.log 2>&1 &
 i=0
 until docker info >/dev/null 2>&1; do

@@ -61,6 +61,11 @@
   "permissions": [
     { "action": "shell", "resource": "*", "effect": "ask" },
 
+    { "action": "shell", "resource": "sh *", "effect": "allow" },
+    { "action": "shell", "resource": "bash *", "effect": "allow" },
+
+    { "action": "shell", "resource": "command*", "effect": "deny" },
+
     { "action": "shell", "resource": "cat *", "effect": "allow" },
     { "action": "shell", "resource": "echo *", "effect": "allow" },
     { "action": "shell", "resource": "pwd", "effect": "allow" },
@@ -99,12 +104,16 @@
     { "action": "shell", "resource": "curl *", "effect": "allow" },
     { "action": "shell", "resource": "wget *", "effect": "allow" },
 
+    { "action": "shell", "resource": "git*", "effect": "deny" },
     { "action": "shell", "resource": "git log*", "effect": "allow" },
     { "action": "shell", "resource": "git diff*", "effect": "allow" },
     { "action": "shell", "resource": "git status*", "effect": "allow" },
     { "action": "shell", "resource": "git check-ignore*", "effect": "allow" },
     { "action": "shell", "resource": "git show*", "effect": "allow" },
+    { "action": "shell", "resource": "git ls-files*", "effect": "allow" },
+    { "action": "shell", "resource": "git mv*", "effect": "allow" },
 
+    { "action": "shell", "resource": "docker*", "effect": "deny" },
     { "action": "shell", "resource": "docker ps*", "effect": "allow" },
     { "action": "shell", "resource": "docker images*", "effect": "allow" },
     { "action": "shell", "resource": "docker exec*", "effect": "allow" },
@@ -123,6 +132,7 @@
     { "action": "shell", "resource": "python3 *", "effect": "allow" },
     { "action": "shell", "resource": "node *", "effect": "allow" },
 
+    { "action": "shell", "resource": "uv*", "effect": "deny" },
     { "action": "shell", "resource": "uv run*", "effect": "allow" },
     { "action": "shell", "resource": "uv remove*", "effect": "allow" },
     { "action": "shell", "resource": "uv sync*", "effect": "allow" },
@@ -134,6 +144,7 @@
 
     { "action": "shell", "resource": "make *", "effect": "allow" },
 
+    { "action": "shell", "resource": "poetry*", "effect": "deny" },
     { "action": "shell", "resource": "poetry run*", "effect": "allow" },
     { "action": "shell", "resource": "poetry remove*", "effect": "allow" },
     { "action": "shell", "resource": "poetry lock*", "effect": "allow" },

@@ -6,7 +6,9 @@
 !entrypoint.sh
 !README.md
 !setup.sh
-!check-tools.sh
+!tools/
+!tools/check-tools
+!AGENTS.md
 
 !data/
 !data/.keep
