@@ -79,6 +79,7 @@
     { "action": "shell", "resource": "tee*", "effect": "allow" },
     { "action": "shell", "resource": "file*", "effect": "allow" },
     { "action": "shell", "resource": "which *", "effect": "allow" },
+    { "action": "shell", "resource": "du *", "effect": "allow" },
 
     { "action": "shell", "resource": "rm *", "effect": "allow" },
     { "action": "shell", "resource": "rm -rf .*", "effect": "deny" },
