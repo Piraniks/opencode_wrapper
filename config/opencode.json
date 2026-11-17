@@ -13,9 +13,6 @@
     "dev-coder": {
       "model": "opencode/deepseek-v4.1-flash-free#coder"
     },
-    "dev-test-writer": {
-      "model": "opencode/deepseek-v4.1-flash-free#test-writer"
-    },
     "dev-reviewer": {
       "model": "opencode/deepseek-v4.1-flash-free#reviewer"
     }
@@ -34,13 +31,6 @@
             },
             {
               "id": "coder",
-              "body": {
-                "thinking": { "type": "disabled" },
-                "temperature": 0.1
-              }
-            },
-            {
-              "id": "test-writer",
               "body": {
                 "thinking": { "type": "disabled" },
                 "temperature": 0.1
